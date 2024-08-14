@@ -21,12 +21,12 @@ public:
     int dy[4]={1,0,-1,0};
     
     void dfs(vector<vector<int>>& grid,int r,int c){
-        if(r<0 || c<0 || r>=grid.size() || c>=grid[0].size() || grid[r][c]==0)return;
+        
         grid[r][c]=0;
         for(int i=0;i<4;i++){
             int nr=r+dx[i];
             int nc=c+dy[i];
-            
+            if(nr<0 || nc<0 || nr>=grid.size() || nc>=grid[0].size() || grid[nr][nc]==0)continue;        
             dfs(grid,nr,nc);
         }
     }
